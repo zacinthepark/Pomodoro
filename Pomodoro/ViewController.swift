@@ -17,7 +17,6 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var endButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
  
-    private var dailyPomodoro = Pomodoro(studyTime: 0, breakTime: 0)
     private var pomodoroEmoji = ""
     
 }
@@ -65,7 +64,7 @@ extension ViewController {
         endButton.isEnabled = false
         
         timeLabel.isHidden = false
-        timeLabel.text = "Daily Total: Studied \(dailyPomodoro.studyTime)mins with \(dailyPomodoro.breakTime)mins of break"
+        timeLabel.text = "StudyTime: \(dailyPomodoro.studyTime)mins BreakTime: \(dailyPomodoro.breakTime)mins"
         
         view.backgroundColor = UIColor.lightGray
         

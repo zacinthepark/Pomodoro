@@ -32,5 +32,7 @@ struct Pomodoro {
     
 }
 
+var dailyPomodoro = Pomodoro(pomodoroBasket: [], studyTime: 0, breakTime: 0)
+
 
 
