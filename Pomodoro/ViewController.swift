@@ -69,6 +69,7 @@ extension ViewController {
         let image = UIImage(named: "sea")
         guideImageView.image = image
         
+        pomodoroLabel.font = UIFont.systemFont(ofSize: 20)
         pomodoroLabel.text = dailyPomodoro.showResult().message
     }
     
