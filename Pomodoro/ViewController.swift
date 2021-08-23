@@ -22,6 +22,20 @@ final class ViewController: UIViewController {
     
 }
 
+extension ViewController {
+    
+    private func addPomodoro() {
+        dailyPomodoro.pomodoroBasket += ["🍅"]
+    }
+
+    private func addPomodoroToScreen() {
+        addPomodoro()
+        pomodoroEmoji += "🍅"
+        updateScreen()
+    }
+    
+}
+
 
 extension ViewController {
     
@@ -30,20 +44,17 @@ extension ViewController {
         studyButton.isEnabled = true
         breakButton.isEnabled = true
         endButton.isEnabled = true
+        timeLabel.isHidden = true
+        
         view.backgroundColor = UIColor.orange
         
         let image = UIImage(named: "pomodoro")
         guideImageView.image = image
         
-        var pomodoroCount = dailyPomodoro.pomodoros
-        while pomodoroCount > 0 {
-            pomodoroEmoji += "🍅"
-            pomodoroCount = pomodoroCount - 1
-        }
         pomodoroLabel.text = pomodoroEmoji
         
-        timeLabel.isHidden = true
     }
+    
 }
 
 extension ViewController {
@@ -56,12 +67,12 @@ extension ViewController {
         timeLabel.isHidden = false
         timeLabel.text = "Daily Total: Studied \(dailyPomodoro.studyTime)mins with \(dailyPomodoro.breakTime)mins of break"
         
-        pomodoroLabel.text = dailyPomodoro.showResult().message
+        view.backgroundColor = UIColor.lightGray
         
         let image = UIImage(named: "gravity")
         guideImageView.image = image
         
-        view.backgroundColor = UIColor.gray
+        pomodoroLabel.text = dailyPomodoro.showResult().message
     }
     
 }
@@ -79,12 +90,11 @@ extension ViewController {
     
     @IBAction private func tapStudyButton(_ sender: UIButton) {
         dailyPomodoro.studyTime += 25
-        updateScreen()
+        addPomodoroToScreen()
     }
 
     @IBAction private func tapBreakButton(_ sender: UIButton) {
         dailyPomodoro.breakTime += 5
-        updateScreen()
     }
 
     @IBAction private func tapEndButton(_ sender: UIButton) {
@@ -94,6 +104,7 @@ extension ViewController {
     @IBAction func tapResetButton(_ sender: UIButton) {
         dailyPomodoro.studyTime = 0
         dailyPomodoro.breakTime = 0
+        dailyPomodoro.pomodoroBasket = []
         pomodoroEmoji = ""
         updateScreen()
     }
