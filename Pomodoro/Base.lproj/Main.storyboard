@@ -44,14 +44,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zon-ce-1Dk">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="Study"/>
+                                                <connections>
+                                                    <action selector="tapStudyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psi-4p-jA6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXb-Go-4zp">
                                                 <rect key="frame" x="84" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="Break"/>
+                                                <connections>
+                                                    <action selector="tapBreakButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m1K-Zm-anG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckh-gP-kue">
                                                 <rect key="frame" x="168" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="End"/>
+                                                <connections>
+                                                    <action selector="tapEndButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zia-o0-ZdN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
