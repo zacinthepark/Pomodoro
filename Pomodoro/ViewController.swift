@@ -66,9 +66,9 @@ extension ViewController {
         timeLabel.isHidden = false
         timeLabel.text = "StudyTime: \(dailyPomodoro.studyTime)mins BreakTime: \(dailyPomodoro.breakTime)mins"
         
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.cyan
         
-        let image = UIImage(named: "gravity")
+        let image = UIImage(named: "sea")
         guideImageView.image = image
         
         pomodoroLabel.text = dailyPomodoro.showResult().message
