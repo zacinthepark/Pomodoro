@@ -16,7 +16,7 @@ struct Pomodoro {
     }
     
     var pomodoros: Int {
-        return totalTime / 30
+        return Int(totalTime / 30)
     }
         
     func showResult() -> DailyResult {

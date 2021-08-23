@@ -26,6 +26,12 @@ final class ViewController: UIViewController {
 extension ViewController {
     
     private func updateScreen() {
+        
+        studyButton.isEnabled = true
+        breakButton.isEnabled = true
+        endButton.isEnabled = true
+        view.backgroundColor = UIColor.orange
+        
         let image = UIImage(named: "pomodoro")
         guideImageView.image = image
         
@@ -45,8 +51,17 @@ extension ViewController {
     private func endCounting() {
         studyButton.isEnabled = false
         breakButton.isEnabled = false
+        endButton.isEnabled = false
+        
         timeLabel.isHidden = false
         timeLabel.text = "Daily Total: Studied \(dailyPomodoro.studyTime)mins with \(dailyPomodoro.breakTime)mins of break"
+        
+        pomodoroLabel.text = dailyPomodoro.showResult().message
+        
+        let image = UIImage(named: "gravity")
+        guideImageView.image = image
+        
+        view.backgroundColor = UIColor.gray
     }
     
 }
@@ -55,7 +70,7 @@ extension ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateScreen()
     }
     
 }
@@ -64,23 +79,24 @@ extension ViewController {
     
     @IBAction private func tapStudyButton(_ sender: UIButton) {
         dailyPomodoro.studyTime += 25
+        updateScreen()
     }
-    
-}
 
-extension ViewController {
-    
     @IBAction private func tapBreakButton(_ sender: UIButton) {
         dailyPomodoro.breakTime += 5
+        updateScreen()
     }
-    
-}
 
-extension ViewController {
-    
     @IBAction private func tapEndButton(_ sender: UIButton) {
+        endCounting()
     }
     
+    @IBAction func tapResetButton(_ sender: UIButton) {
+        dailyPomodoro.studyTime = 0
+        dailyPomodoro.breakTime = 0
+        pomodoroEmoji = ""
+        updateScreen()
+    }
+    
+    
 }
-
-
