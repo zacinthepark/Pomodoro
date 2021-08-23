@@ -45,7 +45,7 @@ extension ViewController {
         endButton.isEnabled = true
         timeLabel.isHidden = true
         
-        view.backgroundColor = UIColor.orange
+        view.backgroundColor = UIColor.systemOrange
         
         let image = UIImage(named: "pomodoro")
         guideImageView.image = image
