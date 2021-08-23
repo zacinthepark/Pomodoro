@@ -69,6 +69,15 @@
                             <constraint firstItem="tcd-ss-5sw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="Tuf-pK-3UO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="breakButton" destination="eXb-Go-4zp" id="NvQ-sh-fTC"/>
+                        <outlet property="endButton" destination="Ckh-gP-kue" id="L7H-wB-enL"/>
+                        <outlet property="guideImageView" destination="dah-4p-jXG" id="YZz-8h-2sm"/>
+                        <outlet property="pomodoroLabel" destination="8Io-Va-Axn" id="iGM-2n-8IC"/>
+                        <outlet property="resetButton" destination="wG8-hQ-Ky1" id="pqI-TO-jll"/>
+                        <outlet property="studyButton" destination="zon-ce-1Dk" id="ipi-WT-a1U"/>
+                        <outlet property="timeLabel" destination="y7E-vW-oSj" id="gzG-cf-TXo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
