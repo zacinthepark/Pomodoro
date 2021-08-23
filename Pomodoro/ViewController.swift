@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var guideImageView: UIImageView!
     @IBOutlet private weak var pomodoroLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
@@ -39,7 +39,6 @@ extension ViewController {
 extension ViewController {
     
     private func updateScreen() {
-        
         studyButton.isEnabled = true
         breakButton.isEnabled = true
         endButton.isEnabled = true
@@ -51,7 +50,6 @@ extension ViewController {
         guideImageView.image = image
         
         pomodoroLabel.text = pomodoroEmoji
-        
     }
     
 }
@@ -107,6 +105,5 @@ extension ViewController {
         pomodoroEmoji = ""
         updateScreen()
     }
-    
-    
+
 }
