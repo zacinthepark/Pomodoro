@@ -21,11 +21,11 @@ extension PomodoroBasket {
         5
     }
         
-    var studyTime: Int {
+    private var studyTime: Int {
         pomodoros * unitStudyTime
     }
     
-    var breakTime: Int {
+    private var breakTime: Int {
         breaks * unitBreakTime
     }
 }
@@ -33,6 +33,10 @@ extension PomodoroBasket {
 extension PomodoroBasket {
     var emojis: String {
         String(repeating: "🍅", count: pomodoros)
+    }
+    
+    var timeLabelText: String {
+        "StudyTime: \(studyTime)mins BreakTime: \(breakTime)mins"
     }
 }
 

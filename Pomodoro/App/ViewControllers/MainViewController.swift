@@ -22,8 +22,37 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     enum Mode {
         case standby
-        case counting(count: Int)
+        case counting
         case result
+    }
+}
+
+extension MainViewController.Mode {
+    var backgroundColor: UIColor {
+        switch self {
+        case .standby, .counting:
+            return .green
+        case .result:
+            return .red
+        }
+    }
+    
+    var guideImage: UIImage? {
+        switch self {
+        case .standby, .counting:
+            return UIImage(named: "pomodoro")
+        case .result:
+            return UIImage(named: "pomodoro")
+        }
+    }
+    
+    var pomodoroLabelFont: UIFont {
+        switch self {
+        case .standby, .counting:
+            return .systemFont(ofSize: 10)
+        case .result:
+            return .systemFont(ofSize: 100)
+        }
     }
 }
 
@@ -39,56 +68,44 @@ extension MainViewController {
     private func update(mode: Mode) {
         switch mode {
         case .standby:
-            studyButton.isEnabled = true
-            breakButton.isEnabled = true
-            endButton.isEnabled = true
-            
-            timeLabel.isHidden = true
-            
-            view.backgroundColor = .systemOrange
-            
-            pomodoroLabel.font = .systemFont(ofSize: 10)
+            enableCounting(isEnabled: true)
+            configureTimeLabel(timeText: nil)
+
             pomodoroLabel.text = ""
+        case .counting:
+            enableCounting(isEnabled: true)
+            configureTimeLabel(timeText: nil)
             
-            let image = UIImage(named: "pomodoro")
-            guideImageView.image = image
-        case .counting(let count):
-            studyButton.isEnabled = true
-            breakButton.isEnabled = true
-            endButton.isEnabled = true
-            
-            timeLabel.isHidden = true
-            
-            view.backgroundColor = .systemOrange
-            
-            pomodoroLabel.font = .systemFont(ofSize: 10)
             pomodoroLabel.text = pomodoroBasket.emojis
-            
-            let image = UIImage(named: "pomodoro")
-            guideImageView.image = image
         case .result:
-            studyButton.isEnabled = false
-            breakButton.isEnabled = false
-            endButton.isEnabled = false
+            enableCounting(isEnabled: true)
             
-            timeLabel.isHidden = false
-            timeLabel.text = "StudyTime: \(pomodoroBasket.studyTime)mins BreakTime: \(pomodoroBasket.breakTime)mins"
+            configureTimeLabel(timeText: pomodoroBasket.timeLabelText)
             
-            view.backgroundColor = UIColor.cyan
-            
-            let image = UIImage(named: "sea")
-            guideImageView.image = image
-            
-            pomodoroLabel.font = UIFont.systemFont(ofSize: 20)
             pomodoroLabel.text = pomodoroBasket.dailyResultMessage
         }
+        
+        view.backgroundColor = mode.backgroundColor
+        guideImageView.image = mode.guideImage
+        pomodoroLabel.font = mode.pomodoroLabelFont
+    }
+    
+    private func enableCounting(isEnabled: Bool) {
+        studyButton.isEnabled = isEnabled
+        breakButton.isEnabled = isEnabled
+        endButton.isEnabled = isEnabled
+    }
+    
+    private func configureTimeLabel(timeText: String?) {
+        timeLabel.isHidden = timeText == nil
+        timeLabel.text = timeText
     }
 }
 
 extension MainViewController {
     private func addPomodoro() {
         pomodoroBasket.addPomodoro()
-        update(mode: .counting(count: 1))
+        update(mode: .counting)
     }
 }
 
