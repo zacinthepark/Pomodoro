@@ -13,8 +13,9 @@
 		B3032D2726CEA0A500524735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3032D2526CEA0A500524735 /* Main.storyboard */; };
 		B3032D2926CEA0A500524735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3032D2826CEA0A500524735 /* Assets.xcassets */; };
 		B3032D2C26CEA0A500524735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3032D2A26CEA0A500524735 /* LaunchScreen.storyboard */; };
+		B3981B5626D63BC000CF5DEA /* AccomplishmentLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3981B5526D63BC000CF5DEA /* AccomplishmentLevel.swift */; };
 		B3C8A1CE26D105AA00CDA48B /* DailyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C8A1CD26D105AA00CDA48B /* DailyResult.swift */; };
-		B3C8A1D026D21D7B00CDA48B /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C8A1CF26D21D7B00CDA48B /* Pomodoro.swift */; };
+		B3C8A1D026D21D7B00CDA48B /* PomodoroBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C8A1CF26D21D7B00CDA48B /* PomodoroBasket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		B3032D2826CEA0A500524735 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3032D2B26CEA0A500524735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3032D2D26CEA0A500524735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3981B5526D63BC000CF5DEA /* AccomplishmentLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomplishmentLevel.swift; sourceTree = "<group>"; };
 		B3C8A1CD26D105AA00CDA48B /* DailyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyResult.swift; sourceTree = "<group>"; };
-		B3C8A1CF26D21D7B00CDA48B /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		B3C8A1CF26D21D7B00CDA48B /* PomodoroBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroBasket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				B3C8A1CD26D105AA00CDA48B /* DailyResult.swift */,
-				B3C8A1CF26D21D7B00CDA48B /* Pomodoro.swift */,
+				B3981B5526D63BC000CF5DEA /* AccomplishmentLevel.swift */,
+				B3C8A1CF26D21D7B00CDA48B /* PomodoroBasket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,8 +181,9 @@
 				B3032D2426CEA0A500524735 /* MainViewController.swift in Sources */,
 				B3032D2026CEA0A500524735 /* AppDelegate.swift in Sources */,
 				B3C8A1CE26D105AA00CDA48B /* DailyResult.swift in Sources */,
+				B3981B5626D63BC000CF5DEA /* AccomplishmentLevel.swift in Sources */,
 				B3032D2226CEA0A500524735 /* SceneDelegate.swift in Sources */,
-				B3C8A1D026D21D7B00CDA48B /* Pomodoro.swift in Sources */,
+				B3C8A1D026D21D7B00CDA48B /* PomodoroBasket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

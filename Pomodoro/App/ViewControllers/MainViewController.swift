@@ -15,8 +15,8 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var breakButton: UIButton!
     @IBOutlet private weak var endButton: UIButton!
     @IBOutlet private weak var resetButton: UIButton!
- 
-    private var pomodoroEmoji = ""
+    
+    var pomodoroBasket = PomodoroBasket()
 }
 
 extension MainViewController {
@@ -31,21 +31,7 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         update(mode: .standby)
-    }
-}
-
-extension MainViewController {
-    private func addPomodoro() {
-        dailyPomodoro.pomodoroBasket += ["🍅"]
-    }
-
-    private func addPomodoroToScreen() {
-        addPomodoro()
-        pomodoroEmoji += "🍅"
-        update(mode: .counting(count: 1))
     }
 }
 
@@ -62,7 +48,7 @@ extension MainViewController {
             view.backgroundColor = .systemOrange
             
             pomodoroLabel.font = .systemFont(ofSize: 10)
-            pomodoroLabel.text = pomodoroEmoji
+            pomodoroLabel.text = ""
             
             let image = UIImage(named: "pomodoro")
             guideImageView.image = image
@@ -76,7 +62,7 @@ extension MainViewController {
             view.backgroundColor = .systemOrange
             
             pomodoroLabel.font = .systemFont(ofSize: 10)
-            pomodoroLabel.text = pomodoroEmoji
+            pomodoroLabel.text = pomodoroBasket.emojis
             
             let image = UIImage(named: "pomodoro")
             guideImageView.image = image
@@ -86,7 +72,7 @@ extension MainViewController {
             endButton.isEnabled = false
             
             timeLabel.isHidden = false
-            timeLabel.text = "StudyTime: \(dailyPomodoro.studyTime)mins BreakTime: \(dailyPomodoro.breakTime)mins"
+            timeLabel.text = "StudyTime: \(pomodoroBasket.studyTime)mins BreakTime: \(pomodoroBasket.breakTime)mins"
             
             view.backgroundColor = UIColor.cyan
             
@@ -94,30 +80,33 @@ extension MainViewController {
             guideImageView.image = image
             
             pomodoroLabel.font = UIFont.systemFont(ofSize: 20)
-            pomodoroLabel.text = dailyPomodoro.showResult().message
+            pomodoroLabel.text = pomodoroBasket.dailyResultMessage
         }
     }
 }
 
 extension MainViewController {
+    private func addPomodoro() {
+        pomodoroBasket.addPomodoro()
+        update(mode: .counting(count: 1))
+    }
+}
+
+extension MainViewController {
     @IBAction private func tapStudyButton(_ sender: UIButton) {
-        dailyPomodoro.studyTime += 25
-        addPomodoroToScreen()
+        addPomodoro()
     }
     
     @IBAction private func tapBreakButton(_ sender: UIButton) {
-        dailyPomodoro.breakTime += 5
+        pomodoroBasket.addBreakTime()
     }
-
+    
     @IBAction private func tapEndButton(_ sender: UIButton) {
-         update(mode: .result)
+        update(mode: .result)
     }
     
     @IBAction private func tapResetButton(_ sender: UIButton) {
-        dailyPomodoro.studyTime = 0
-        dailyPomodoro.breakTime = 0
-        dailyPomodoro.pomodoroBasket = []
-        pomodoroEmoji = ""
+        pomodoroBasket.resetBasket()
         update(mode: .standby)
     }
 }

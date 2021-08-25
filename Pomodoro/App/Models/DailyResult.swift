@@ -7,20 +7,25 @@
 
 import Foundation
 
-enum DailyResult {
-    case phenomenal, verygood, good, bad, verybad, terrible
+struct DailyResult {
+    private let pomodoros: Int
+    private let accomplishmentLevel: AccomplishmentLevel
     
-    var message: String {
-        switch self {
-        case .phenomenal: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅 today. 💎"
-        case .verygood: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅  today. 💡"
-        case .good: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅 today. 😈"
-        case .bad: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅 today. 😵‍💫"
-        case .verybad: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅 today. ⚠️"
-        case .terrible: return "You've collected \(dailyPomodoro.pomodoroBasket.count) 🍅 today. 🧨"
-        }
+    init(pomodoros: Int) {
+        self.pomodoros = pomodoros
+        self.accomplishmentLevel = AccomplishmentLevel(pomodoros: pomodoros)
     }
 }
 
-
-
+extension DailyResult {
+    var message: String {
+        switch accomplishmentLevel {
+        case .phenomenal: return "You've collected \(pomodoros) 🍅 today. 💎"
+        case .verygood: return "You've collected \(pomodoros) 🍅  today. 💡"
+        case .good: return "You've collected \(pomodoros) 🍅 today. 😈"
+        case .bad: return "You've collected \(pomodoros) 🍅 today. 😵‍💫"
+        case .verybad: return "You've collected \(pomodoros) 🍅 today. ⚠️"
+        case .terrible: return "You've collected \(pomodoros) 🍅 today. 🧨"
+        }
+    }
+}
