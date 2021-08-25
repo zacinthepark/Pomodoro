@@ -51,7 +51,7 @@ extension MainViewController.Mode {
         case .standby, .counting:
             return .systemFont(ofSize: 10)
         case .result:
-            return .systemFont(ofSize: 100)
+            return .systemFont(ofSize: 20)
         }
     }
 }
@@ -99,6 +99,8 @@ extension MainViewController {
     private func configureTimeLabel(timeText: String?) {
         timeLabel.isHidden = timeText == nil
         timeLabel.text = timeText
+        print(timeText)
+        print(timeLabel.isHidden)
     }
 }
 
