@@ -51,7 +51,7 @@ extension MainViewController.Mode {
         case .standby, .counting:
             return .systemFont(ofSize: 10)
         case .result:
-            return .systemFont(ofSize: 100)
+            return .systemFont(ofSize: 20)
         }
     }
 }
@@ -70,18 +70,14 @@ extension MainViewController {
         case .standby:
             enableCounting(isEnabled: true)
             configureTimeLabel(timeText: nil)
-
             pomodoroLabel.text = ""
         case .counting:
             enableCounting(isEnabled: true)
             configureTimeLabel(timeText: nil)
-            
             pomodoroLabel.text = pomodoroBasket.emojis
         case .result:
             enableCounting(isEnabled: true)
-            
             configureTimeLabel(timeText: pomodoroBasket.timeLabelText)
-            
             pomodoroLabel.text = pomodoroBasket.dailyResultMessage
         }
         
