@@ -70,18 +70,14 @@ extension MainViewController {
         case .standby:
             enableCounting(isEnabled: true)
             configureTimeLabel(timeText: nil)
-
             pomodoroLabel.text = ""
         case .counting:
             enableCounting(isEnabled: true)
             configureTimeLabel(timeText: nil)
-            
             pomodoroLabel.text = pomodoroBasket.emojis
         case .result:
             enableCounting(isEnabled: true)
-            
             configureTimeLabel(timeText: pomodoroBasket.timeLabelText)
-            
             pomodoroLabel.text = pomodoroBasket.dailyResultMessage
         }
         
