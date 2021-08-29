@@ -95,8 +95,6 @@ extension MainViewController {
     private func configureTimeLabel(timeText: String?) {
         timeLabel.isHidden = timeText == nil
         timeLabel.text = timeText
-        print(timeText)
-        print(timeLabel.isHidden)
     }
 }
 
